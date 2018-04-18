@@ -1,0 +1,238 @@
+@charset "UTF-8";
+* {
+  font-family: "微軟正黑體";
+  position: relative;
+}
+
+header .container .row.header3 {
+  padding-top: 120px;
+  background-color: #6097d4;
+}
+header .container .row.header2 {
+  border-bottom: 1px solid;
+  padding-top: 60px;
+  Z-index: 20;
+  background-image: url("https://pic3.zhimg.com/80/v2-26a5a21825e0f6e99e042c43fb3a1f0c_r.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+  color: #FFC468;
+}
+header .container .row.header2 .row {
+  bottom: -120px;
+}
+header .container .row.header2 .info {
+  margin: 0px 8px;
+  padding: 0px 12px;
+  border: solid 1px;
+  border-radius: 5px;
+  background-color: #FFC468;
+  color: black;
+  box-shadow: inset 0px 2px rgba(0, 0, 0, 0.2);
+}
+header .container .row.header2 .info:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #0f3c6f;
+}
+header .container .my_msg {
+  margin-top: 5px;
+}
+header .container .my_msg span {
+  margin: 0px 8px;
+  padding: 0px 12px;
+  border: solid 1px;
+  border-radius: 5px;
+  background-color: #FFC468;
+  color: black;
+  box-shadow: inset 0px 2px rgba(0, 0, 0, 0.2);
+}
+header .container .my_msg span:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #0f3c6f;
+}
+header .col-md-4 {
+  text-align: center;
+  color: #FFC468;
+  letter-spacing: 1px;
+}
+header .row1 {
+  background-color: #0f3c6f;
+  padding: 6px 0px;
+}
+header .rl {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+header .rl span {
+  margin: 0px 8px;
+  padding: 0px 12px;
+  border: solid 1px;
+  border-radius: 5px;
+  background-color: #FFC468;
+  color: black;
+  box-shadow: inset 0px 2px rgba(0, 0, 0, 0.2);
+}
+header .rl span:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #0f3c6f;
+}
+header .col-md-10.offset-md-1 .row {
+  padding: 10px 0;
+}
+header .col-md-10.offset-md-1 .col-md-5.offset-1 {
+  padding-top: 10px;
+}
+header .col-md-10.offset-md-1 .col-md-5.offset-1 .search {
+  margin-top: 10px;
+}
+header .col-md-10.offset-md-1 .col-md-5.offset-1 .search span {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0px 8px;
+  padding: 0px 12px;
+  border: solid 1px;
+  border-radius: 5px;
+  background-color: #FFC468;
+  color: black;
+  box-shadow: inset 0px 2px rgba(0, 0, 0, 0.2);
+}
+header .col-md-10.offset-md-1 .col-md-5.offset-1 .search span:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #0f3c6f;
+}
+header .col-md-10.offset-md-1 .col-md-5.offset-1 input {
+  width: 100%;
+  padding: 1px 4px;
+  border-radius: 5px;
+}
+header .head_icon, header .net_name, header .person_name {
+  display: inline-block;
+  vertical-align: middle;
+}
+header .head_icon {
+  width: 160px;
+  height: 160px;
+  padding: 2px;
+}
+header .net_name {
+  position: absolute;
+  top: 40%;
+  padding-left: 10px;
+  padding-right: 10px;
+  max-width: 240px;
+  border-bottom: solid 2px #FFC468;
+}
+header .net_name:hover {
+  cursor: pointer;
+}
+header .person_name {
+  position: absolute;
+  top: 60%;
+  padding-left: 10px;
+  padding-right: 10px;
+  max-width: 560px;
+  border-bottom: solid 2px #FFC468;
+}
+header .col-md-5.offset-1 {
+  margin-top: 50px;
+  Z-index: 20;
+}
+
+.message {
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  background-color: #6097d4;
+  color: white;
+}
+
+section .section1 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+section .container {
+  padding: 20px 20px;
+  background-color: #0f3c6f;
+  color: white;
+}
+
+.head_icon, .net_name, .person_name {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.head_icon {
+  padding: 10px;
+  width: 100px;
+  height: 100px;
+  border: solid 3px #FFC468;
+  border-radius: 9px;
+  margin-right: 22px;
+}
+.head_icon:hover {
+  cursor: pointer;
+}
+
+.net_name {
+  position: absolute;
+  top: 19%;
+  padding-left: 10px;
+  padding-right: 10px;
+  max-width: 240px;
+  border-bottom: solid 2px #FFC468;
+}
+.net_name:hover {
+  cursor: pointer;
+}
+
+.person_name {
+  padding-left: 10px;
+  padding-right: 10px;
+  max-width: 560px;
+  border-bottom: solid 2px #FFC468;
+}
+
+.code_name, .code_msg {
+  padding: 10px 10px;
+}
+
+.code_name span {
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.code_name span:hover {
+  color: #FFC468;
+}
+
+.code_msg {
+  max-height: 160px;
+  overflow: hidden;
+  letter-spacing: 1px;
+}
+
+.comment {
+  padding-left: 10px;
+}
+.comment .yes, .comment .no, .comment .com, .comment .coll, .comment .readAll {
+  display: inline-block;
+  border: solid 1px;
+  border-radius: 5px;
+  background-color: #FFC468;
+  color: black;
+  box-shadow: inset 0px 2px rgba(0, 0, 0, 0.2);
+  padding: 0px 12px;
+}
+.comment .yes:hover, .comment .no:hover, .comment .com:hover, .comment .coll:hover, .comment .readAll:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #0f3c6f;
+}

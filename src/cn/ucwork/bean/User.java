@@ -1,13 +1,13 @@
 package cn.ucwork.bean;
 
 public class User {
-	private String user_id;
-	private String user_email;
-	private String passwd;
-	private String name;
-	private String person_name;
-	private String icon;
-	private String bg_icon;
+	private String user_id = null;
+	private String user_email = null;
+	private String passwd = null;
+	private String name = null;
+	private String person_name = null;
+	private String icon = null;
+	private String bg_icon = null;
 	public String getUser_id() {
 		return user_id;
 	}

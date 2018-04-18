@@ -7,12 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="" method="post">
-		邮箱：<input type="email" name="user_email" onblur="veryfyEmail" /><span id="checkEmail_msg"></span><br />
+	<form action="${pageContext.request.contextPath }/registServlet" method="post">
+		邮箱：<input type="email" name="user_email" onblur=veryfyEmail() value="${user.user_email }"/><span id="checkEmail_msg"></span><br />
 		密码：<input type="password" name="passwd" /><br /> 昵称：<input
-			type="text" name="name" /><br /> 邮箱验证码：<input type="text"
+			type="text" name="name" value="${user.name }"/><br /> 邮箱验证码：<input type="text"
 			name="veryfyCode" /><input type="button" value="获取验证码" id="btn"
-			onclick=send() /><span id="send_msg"></span><br /> <br /> <input type="submit" value="注册" />
+			onclick=send() /><span id="send_msg"></span><br /> ${emailVeryfy_empty }<br /> <input type="submit" value="注册" />
 	</form>
 </body>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/AjaxGetXMLHttpRequest.js"></script>

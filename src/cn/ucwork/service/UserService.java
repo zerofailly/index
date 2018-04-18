@@ -1,20 +1,19 @@
 package cn.ucwork.service;
 
 import cn.ucwork.bean.User;
+import cn.ucwork.exception.UserException;
 
 public interface UserService {
 	/**
 	 * 注册新用户
 	 * 
 	 * 邮箱验证码功能的实现：
-	 * 点击发送验证码，用beanutils.populate封装用户输入信息'user',分发到VerifyEmailServlet生成verifyCode并发送验证邮件,
-	 * 将user和verifyCode存入request，分发回registServlet,并进行回显数据
-	 * 
 	 * 注册：
-	 * 提交数据，将用户输入验证码和request钟的验证码进行比较
+	 * 
 	 * @return
+	 * @throws UserException 
 	 */
-	public void registUserAndVerifyEmail(User user,String verifyCode);
+	public void registUserAndVerifyEmail(User user) throws UserException;
 	
 	
 	/**
@@ -34,8 +33,9 @@ public interface UserService {
 	/**
 	 * 判断是否存在邮箱
 	 * @param user_email
-	 * @return
+	 * @return user
+	 * @throws UserException 
 	 */
-	public boolean checkEmail(String user_email); 
+	public User checkEmail(String user_email); 
 	
 }

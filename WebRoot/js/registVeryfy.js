@@ -15,7 +15,7 @@ function send() {
 			}
 		}
 	}
-	xmlHttp.open("get", "${pageContext.request.contextPath }/sendEmailServlet?user_email=" + user_email.value);
+	xmlHttp.open("get", "./sendEmailServlet?user_email=" + user_email.value);
 	xmlHttp.send(null);
 
 }
@@ -37,6 +37,6 @@ function veryfyEmail(){
 			}
 		}
 	}
-	xmlHttp.open("get", "${pageContext.request.contextPath }/checkEmailServlet?user_email=" + user_email.value);
+	xmlHttp.open("get", "./checkEmailServlet?user_email=" + user_email.value);
 	xmlHttp.send(null);
 }

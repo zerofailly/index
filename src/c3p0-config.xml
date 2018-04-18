@@ -10,7 +10,7 @@
     <property name="minPoolSize">10</property>
     <property name="maxStatements">200</property>
     <property name="driverClass">com.mysql.jdbc.Driver</property>
-    <property name="jdbcUrl">jdbc:mysql://localhost:3306/bookStore</property>
+    <property name="jdbcUrl">jdbc:mysql://localhost:3306/uc_work</property>
     <property name="user">root</property>
     <property name="password">root</property>
 

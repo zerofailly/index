@@ -1,0 +1,268 @@
+@charset "UTF-8";
+* {
+  position: relative;
+  font-size: 16px;
+  font-family: "微軟正黑體";
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+header .container.header1 {
+  background-color: #6097d4;
+  color: white;
+}
+header .container.header1 .row .col-md-10.offset-md-1 {
+  border-bottom: solid 1px;
+}
+header .container.header2 {
+  background-image: url("https://my-cutpublic2pic-1252844199.cos.ap-chengdu.myqcloud.com/pic/uc_work/MJUP%20(4).jpg");
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+header .rl {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+header .rl span {
+  margin: 0px 8px;
+  padding: 0px 12px;
+  border: solid 1px;
+  border-radius: 5px;
+  background-color: #FFC468;
+  color: black;
+  box-shadow: inset 0px 2px rgba(0, 0, 0, 0.2);
+}
+header .rl span:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #0f3c6f;
+}
+header .logo {
+  width: 60%;
+  height: 40px;
+}
+header .logo {
+  display: inline-block;
+  vertical-align: middle;
+}
+header .col-md-5.offset-md-1 {
+  letter-spacing: 2px;
+}
+header .col-md-5.offset-md-1 span {
+  float: right;
+  margin-bottom: 6px;
+}
+header .col-md-5.offset-md-1 span a {
+  color: #FFC468;
+}
+header .col-md-5.offset-md-1 span span {
+  margin-bottom: 0px;
+}
+header .col-md-5.offset-md-1 h3 {
+  padding: 12px 0px;
+  font-size: 26px;
+}
+header .row.justify-content-center {
+  padding: 20px 0;
+  text-align: center;
+}
+header .row.justify-content-center .uc {
+  font-size: 26px;
+  letter-spacing: 1px;
+  padding: 24px 0;
+  background-color: #0f3c6f;
+  color: white;
+  box-shadow: -10px -10px rgba(0, 0, 0, 0.1);
+}
+header .row.justify-content-center .text {
+  padding-top: 20px;
+}
+header .row.justify-content-center .text .col-md-7 {
+  padding: 12px 0;
+  font-weight: 800;
+  letter-spacing: 2px;
+  border-bottom: solid 1px;
+  color: #FFC468;
+}
+
+.message {
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  background-color: #0f3c6f;
+  color: white;
+}
+
+section .section1 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+section .container {
+  padding: 20px 20px;
+  background-color: #6097d4;
+  color: white;
+}
+
+.head_icon, .net_name, .person_name {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.head_icon {
+  padding: 10px;
+  width: 100px;
+  height: 100px;
+  border: solid 3px #FFC468;
+  border-radius: 9px;
+  margin-right: 22px;
+}
+.head_icon:hover {
+  cursor: pointer;
+}
+
+.net_name {
+  position: absolute;
+  top: 19%;
+  padding-left: 10px;
+  padding-right: 10px;
+  max-width: 240px;
+  border-bottom: solid 2px #FFC468;
+}
+.net_name:hover {
+  cursor: pointer;
+}
+
+.person_name {
+  padding-left: 10px;
+  padding-right: 10px;
+  max-width: 560px;
+  border-bottom: solid 2px #FFC468;
+}
+
+.code_name, .code_msg {
+  padding: 10px 10px;
+}
+
+.code_name span {
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.code_name span:hover {
+  color: #FFC468;
+}
+
+.code_msg {
+  max-height: 160px;
+  overflow: hidden;
+  letter-spacing: 1px;
+}
+
+.comment {
+  padding-left: 10px;
+}
+.comment .yes, .comment .no, .comment .com, .comment .coll, .comment .readAll {
+  display: inline-block;
+  border: solid 1px;
+  border-radius: 5px;
+  background-color: #FFC468;
+  color: black;
+  box-shadow: inset 0px 2px rgba(0, 0, 0, 0.2);
+  padding: 0px 12px;
+}
+.comment .yes:hover, .comment .no:hover, .comment .com:hover, .comment .coll:hover, .comment .readAll:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #0f3c6f;
+}
+
+footer .container {
+  background-image: url("https://my-cutpublic2pic-1252844199.cos.ap-chengdu.myqcloud.com/pic/uc_work/MJUP%20(4).jpg");
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #FFC468;
+}
+footer .col-md-5 {
+  margin-top: 10px;
+}
+footer .comment_our {
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+  transform: translate(50%, 50%);
+  font-weight: 700;
+}
+footer .comment_our .qq {
+  margin: 10px 0px;
+}
+footer h3 {
+  padding: 10px 10px;
+  font-weight: 800;
+}
+footer textarea {
+  width: 100%;
+  height: 100px;
+  padding: 4px;
+  opacity: 0.6;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+  border-radius: 5px;
+}
+footer .text_input {
+  margin: 0px 0px;
+  display: inline-block;
+  padding: 2px;
+}
+footer .t {
+  width: 50px;
+  text-align: center;
+  opacity: 1;
+  font-weight: 700;
+}
+footer input {
+  width: 100%;
+  opacity: 0.6;
+  border-radius: 5px;
+}
+footer .submit {
+  width: 60px;
+  text-align: center;
+  float: right;
+  margin: 10px;
+  border: solid 1px;
+  border-radius: 5px;
+  background-color: #FFC468;
+  color: black;
+  box-shadow: inset 0px 2px rgba(0, 0, 0, 0.2);
+}
+footer .submit:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #0f3c6f;
+}
+footer .recommand {
+  background-color: #0f3c6f;
+  color: #FFC468;
+  letter-spacing: 1px;
+  text-align: center;
+  margin: 10px 0px 0px 0px;
+}
+footer .recommand span {
+  padding: 0 10px;
+}
+footer .recommand span:hover {
+  cursor: pointer;
+}
+footer .col-md-12 {
+  padding: 0px;
+}

@@ -1,14 +1,24 @@
 package cn.ucwork.service.impl;
 
+import java.sql.SQLException;
+
 import cn.ucwork.bean.User;
+import cn.ucwork.daoImpl.UserDaoImpl;
+import cn.ucwork.exception.UserException;
 import cn.ucwork.service.UserService;
 
 public class UserServiceImpl implements UserService {
 
 	@Override
-	public void registUserAndVerifyEmail(User user, String verifyCode) {
-		// TODO Auto-generated method stub
-
+	public void registUserAndVerifyEmail(User user) throws UserException {
+		UserDaoImpl ud = new UserDaoImpl();
+		try {
+			ud.addUser(user);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new UserException("×¢²áÊ§°Ü");
+		}
+		
 	}
 
 	@Override
@@ -24,9 +34,14 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean checkEmail(String user_email) {
-		// TODO Auto-generated method stub
-		return false;
+	public User checkEmail(String user_email) {
+		UserDaoImpl ud = new UserDaoImpl();
+		try {
+			return ud.queryUser(user_email);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }
