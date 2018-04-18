@@ -31,5 +31,11 @@ public interface UserService {
 	 */
 	public void updateUserInfo(User user);
 	
+	/**
+	 * ÅĞ¶ÏÊÇ·ñ´æÔÚÓÊÏä
+	 * @param user_email
+	 * @return
+	 */
+	public boolean checkEmail(String user_email); 
 	
 }
