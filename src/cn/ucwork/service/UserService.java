@@ -21,8 +21,9 @@ public interface UserService {
 	 * @param user_email
 	 * @param passwd
 	 * @return
+	 * @throws UserException 
 	 */
-	public User login(String user_email,String passwd,String imgVerifyCode);
+	public User login(String user_email,String passwd) throws UserException;
 	
 	/**
 	 * 修改用户信息
