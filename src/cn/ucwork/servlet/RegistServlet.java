@@ -38,6 +38,7 @@ public class RegistServlet extends HttpServlet {
 		User user = new User();
 		try {
 			BeanUtils.populate(user, request.getParameterMap());
+			System.out.println("user_passwd"+user.getPasswd());
 			String veryfyCode = request.getParameter("veryfyCode");
 			String emailVeryfyCode = (String) request.getSession().getAttribute("email_varyCode");
 			
@@ -64,9 +65,10 @@ public class RegistServlet extends HttpServlet {
 					us.registUserAndVerifyEmail(user);
 					//注册成功后进行登录
 					request.getSession().invalidate();
+					//这里有点小问题
 					request.setAttribute("user", user);
-					request.getRequestDispatcher("/loginServlet").forward(request, response);
-					
+					request.getRequestDispatcher("/login.jsp").forward(request, response);
+					return;
 				} catch (UserException e) {
 					request.setAttribute("user", user);
 					request.setAttribute("emailVeryfy_empty", e.getMessage());
