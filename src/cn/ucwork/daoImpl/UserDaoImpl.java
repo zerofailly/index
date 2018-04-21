@@ -13,6 +13,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void addUser(User user) throws SQLException {
+		System.out.println("UserDaoImpl:"+user.getPasswd());
 		QueryRunner qr = new QueryRunner(C3P0Utill.getDataSource());
 		qr.update("insert into user(user_id,user_email,passwd,NAME,person_name,icon,bg_icon)VALUES(?,?,?,?,?,?,?)",
 				user.getUser_id(), user.getUser_email(), user.getPasswd(), user.getName(), user.getPerson_name(), user.getIcon(),

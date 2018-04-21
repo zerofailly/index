@@ -1,6 +1,8 @@
 package cn.ucwork.filter;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.Filter;
@@ -41,19 +43,10 @@ public class SetPasswdFilter implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
-		HttpServletResponse res = (HttpServletResponse) response;
-		//获取passwd的值，如果为空放行，不为空将密码进行加密后放行
-		/*
-		System.out.println("SetPasswdFilter"+passwd);
-			
-			System.out.println("SetPasswdFilter"+req.getParameter("passwd"));
-			System.out.println("SetPasswdFilter"+passwd);
-			chain.doFilter(req, res);
-		}
-		
-	}*/
-		chain.doFilter(req, res);
-		}
+		HttpServletRequest myrequest = new MyReq(req);
+		//System.out.println("SetPasswd:"+myrequest.getParameter("passwd"));
+		chain.doFilter(myrequest, response);
+	}
 	/**
 	 * @see Filter#init(FilterConfig)
 	 */
@@ -70,20 +63,51 @@ class MyReq extends HttpServletRequestWrapper{
 	}
 	
 	public String getParameter(String name) {
-		String passwd = req.getParameter("passwd");
-		if(passwd == null)
-			return req.getParameter(name);
-		else{
-			char[] passwdArray = passwd.toCharArray();
+		Map<String, String[]> map = getParameterMap();
+		if(map.isEmpty()){
+			/*System.out.println("map:"+map);*/
+			return null;
+		}else{
+			return map.get(name)[0];
+		}
+	}
+	
+	public String[] getParameterValues(String name) {
+		Map<String, String[]> map = getParameterMap();
+		if(map.isEmpty()){
+			return null;
+		}else{
+			return map.get(name);
+		}
+	}
+	@Override
+	public Map<String, String[]> getParameterMap() {
+		int flag = 0;
+		Map<String, String[]> reqMp = req.getParameterMap();
+		Map<String, String[]> map = null;
+		map = new HashMap<String, String[]>();  
+		map.putAll(reqMp);
+		String[] passwd =null;
+		for (String key : map.keySet()) {
+			if("passwd".equals(key)){
+				flag = 1;
+				passwd = map.get(key);
+				break;
+			}
+		}
+		if(flag == 1){
+			char[] passwdArray = passwd[0].toCharArray();
 			//将密码先进行异或处理
 			for (int i = 0; i < passwdArray.length; i++) {
 				passwdArray[i] ^= 1314520;
 			}
-			passwd = String.valueOf(passwdArray);
+			passwd[0] = String.valueOf(passwdArray);
 			//处理后MD5进行加密
-			passwd = MD5Utils.md5(passwd);
-			return passwd;
+			passwd[0] = MD5Utils.md5(passwd[0]);
+			map.put("passwd", passwd);
+			System.out.println("passwd:"+map.get("passwd")[0]);
 		}
+		return map;
 	}
 	
 }

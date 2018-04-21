@@ -45,6 +45,7 @@ public class SendJMail {
 			//连接邮件服务器
 			transport.connect("smtp.163.com",25, username, password);
 			//设置收件人地址,并发送消息
+			System.out.println("to的value:"+to);
 			transport.sendMessage(message,new Address[]{new InternetAddress(to)});
 			transport.close();
 			return true;

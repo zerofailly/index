@@ -2,6 +2,7 @@ package cn.ucwork.servlet;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.ServletException;
@@ -35,6 +36,10 @@ public class RegistServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		/*Map<String, String[]> map = request.getParameterMap();
+		for (String key : map.keySet()) {
+			System.out.println(key+"|"+map.get(key)[0]);
+		}*/
 		User user = new User();
 		try {
 			BeanUtils.populate(user, request.getParameterMap());
@@ -64,10 +69,10 @@ public class RegistServlet extends HttpServlet {
 				try {
 					us.registUserAndVerifyEmail(user);
 					//注册成功后进行登录
+					System.out.println("注册成功");
 					request.getSession().invalidate();
 					//这里有点小问题
-					request.setAttribute("user", user);
-					request.getRequestDispatcher("/login.jsp").forward(request, response);
+					response.sendRedirect(request.getContextPath()+"/login.jsp");
 					return;
 				} catch (UserException e) {
 					request.setAttribute("user", user);

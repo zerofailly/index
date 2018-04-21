@@ -54,7 +54,7 @@ create table user
 (
    user_id              varchar(120) not null,
    user_email           varchar(30),
-   passwd               varchar(30),
+   passwd               varchar(120),
    name                 varchar(120),
    person_name          varchar(240),
    icon                 varchar(120),

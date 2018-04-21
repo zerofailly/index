@@ -1,11 +1,15 @@
 package cn.ucwork.servlet;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.beanutils.BeanUtils;
 
 import cn.ucwork.bean.User;
 import cn.ucwork.exception.UserException;
@@ -32,6 +36,16 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		User loginUser = new User();
+		try {
+			BeanUtils.populate(loginUser, request.getParameterMap());
+		} catch (IllegalAccessException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (InvocationTargetException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		String ck = request.getParameter("veryfyCode");
 		System.out.println(ck);
 		String checkcode_session = (String) request.getSession().getAttribute("checkcode_session");
@@ -41,15 +55,17 @@ public class LoginServlet extends HttpServlet {
 			return;
 		}
 		
-		String user_email = request.getParameter("user_email");
-		String passwd = request.getParameter("passwd");
+		/*String user_email = request.getParameter("user_email");
+		String passwd = request.getParameter("passwd");*/
 		
 		UserService us = new UserServiceImpl();
 		try {
-			User user = us.login(user_email, passwd);
+			System.out.println("login_passwd:"+loginUser.getPasswd());
+			User user = us.login(loginUser.getUser_email(), loginUser.getPasswd());
 			if(user!=null){
+				System.out.println("登录成功");
 				request.getSession().setAttribute("user", user);
-				response.sendRedirect(request.getContextPath()+"/index.html");
+				response.sendRedirect(request.getContextPath()+"/index.jsp");
 			}else{
 				System.out.println("用户名或密码错误");
 				request.setAttribute("login_msg", "用户名或密码错误");

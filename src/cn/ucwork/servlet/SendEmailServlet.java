@@ -30,7 +30,9 @@ public class SendEmailServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("SendEmailServlet");
 		String user_email = request.getParameter("user_email");
+		System.out.println("user_email:"+user_email);
 		String veryCode = Integer.toString((int) ((Math.random()*9+1)*100000));
 		String emailMsg = "感谢您加入uc_work网站，您的验证码是"+veryCode;
 		ServletOutputStream out = response.getOutputStream();
