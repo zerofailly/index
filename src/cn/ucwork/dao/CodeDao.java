@@ -1,5 +1,6 @@
 package cn.ucwork.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import cn.ucwork.bean.Code;
@@ -8,8 +9,9 @@ public interface CodeDao {
 	/**
 	 * 数据库保存代码信息
 	 * @param c
+	 * @throws SQLException 
 	 */
-	public void saveCode(Code c);
+	public void addCode(Code c) throws SQLException;
 	
 	/**
 	 * 根据user_id查询代码

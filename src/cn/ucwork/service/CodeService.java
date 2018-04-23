@@ -3,6 +3,7 @@ package cn.ucwork.service;
 import java.util.List;
 
 import cn.ucwork.bean.Code;
+import cn.ucwork.exception.CodeException;
 
 public interface CodeService {
 	/**
@@ -14,8 +15,9 @@ public interface CodeService {
 	/**
 	 * 保存代码信息
 	 * @param c
+	 * @throws CodeException 
 	 */
-	public void saveCode(Code c);
+	public void addCode(Code c) throws CodeException;
 	
 	/**
 	 * 根据user_id查询代码

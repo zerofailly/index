@@ -81,28 +81,32 @@
     <div class="row">
       <div class="new_code">
         <div class="close" id="new_code_close">X</div>
-        <div class="title">主题:
-          <input/>
-        </div>
-        <div class="mar_code">代码描述:</div>
+        <div class="mar_code">代码描述:<span id="code_description"></span></div>
         <textarea id="code_main" name="" cols="30" rows="10"></textarea>
-        <div class="mar_class">主类:
-          <input/>
+        <div class="mar_class">
+         	 选择语言：
+          <select id="compileType">
+				<option value ="java">java</option>
+		        <option value ="c">c</option>
+		        <option value="c++">c++</option>
+		  </select>
+	    		<span>文件名:</span>
+          <input id="fileName"/><span id="fileName_msg"></span>
         </div>
         <div class="code_area">
           <textarea id="code_msg" name="" cols="30" rows="10"></textarea>
           <div class="run_over"> 
             <h4>运行结果:</h4>
-            <p></p>
+            <p id="run_result"></p>
           </div>
         </div>
         <div class="commit">
           <div class="power">
             <select id="power" name="">
-              <option value="">公开</option>
-              <option value="">私有</option>
+              <option value="public">公开</option>
+              <option value="private">私有</option>
             </select>
-          </div><span>取消</span><span>保存</span><span>运行代码</span>
+          </div><span id="cancel_new_code">取消</span><span onclick=saveCode()>保存</span><span onclick=compile()>运行代码</span><a id="run_msg"></a>
         </div>
       </div>
     </div>
@@ -149,7 +153,7 @@
   
 
     <script  src="js/index_2.js"></script>
-
+	<script  src="js/ajaxFunction.js"></script>
 
 
 

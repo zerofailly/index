@@ -1,4 +1,4 @@
-package cn.ucwork.servlet;
+package cn.ucwork.web.servlet;
 
 import java.awt.Color;
 import java.awt.Font;

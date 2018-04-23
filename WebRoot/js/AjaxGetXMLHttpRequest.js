@@ -20,4 +20,4 @@ function getXMLHttpRequest() {
 			}
 		}
 		return xmlHttp;
-	}
+}

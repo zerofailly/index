@@ -9,15 +9,6 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
- <!--  <filter>
-    <filter-name>EncodingFilter</filter-name>
-    <filter-class>cn.ucwork.filter.EncodingFilter</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>EncodingFilter</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping> -->
-  
   <filter>
     <filter-name>SetPasswdFilter</filter-name>
     <filter-class>cn.ucwork.filter.SetPasswdFilter</filter-class>
@@ -27,17 +18,4 @@
     <url-pattern>/registServlet</url-pattern>
     <url-pattern>/loginServlet</url-pattern>
   </filter-mapping>
-  
-  <!-- <filter>
-    <filter-name>CheckUserLoginFilter</filter-name>
-    <filter-class>cn.ucwork.filter.CheckUserLoginFilter</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>CheckUserLoginFilter</filter-name>
-    <url-pattern></url-pattern>
-  </filter-mapping> -->
-  
-  
-  
-  
 </web-app>

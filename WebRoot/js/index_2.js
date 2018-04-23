@@ -16,6 +16,9 @@ $("#span_new_code").click(function(){
 $("#new_code_close").click(function(){
   $(".new_code").css({"height":"0","width":"0", "padding":"0px"});
 });
+$("#cancel_new_code").click(function(){
+  $(".new_code").css({"height":"0","width":"0", "padding":"0px"});
+});
 var myCodeMirror = CodeMirror.fromTextArea($("#code_msg")[0], {
     
     autoMatchParens: true,
@@ -28,3 +31,9 @@ var myCodeMirror = CodeMirror.fromTextArea($("#code_msg")[0], {
     keyMap: "sublime"
 });
 myCodeMirror.setSize('60%');
+
+
+
+
+
+

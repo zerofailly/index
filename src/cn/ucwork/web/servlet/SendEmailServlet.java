@@ -1,4 +1,4 @@
-package cn.ucwork.servlet;
+package cn.ucwork.web.servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,20 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import cn.ucwork.bean.User;
-import cn.ucwork.service.impl.UserServiceImpl;
+import cn.ucwork.service.impl.SendEmailServiceImpl;
+import cn.ucwork.util.SendJMail;
 
 /**
- * Servlet implementation class CheckEmailServlet
+ * Servlet implementation class SendEmailServlet
  */
-@WebServlet("/checkEmailServlet")
-public class CheckEmailServlet extends HttpServlet {
+@WebServlet("/sendEmailServlet")
+public class SendEmailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CheckEmailServlet() {
+    public SendEmailServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,11 +30,18 @@ public class CheckEmailServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("SendEmailServlet");
 		String user_email = request.getParameter("user_email");
-		System.out.println(user_email);
-		UserServiceImpl us = new UserServiceImpl();
+		System.out.println("user_email:"+user_email);
+		String veryCode = Integer.toString((int) ((Math.random()*9+1)*100000));
+		String emailMsg = "感谢您加入uc_work网站，您的验证码是"+veryCode;
 		ServletOutputStream out = response.getOutputStream();
-		if(us.checkEmail(user_email)!=null){
+		SendEmailServiceImpl sm = new SendEmailServiceImpl();
+		if(sm.sendEmail(user_email, emailMsg)){
+			
+			//将验证码存入session中
+			request.getSession().setAttribute("email_varyCode", veryCode);
+			System.out.println(request.getSession().getAttribute("email_varyCode"));
 			out.print(true);
 		}else{
 			out.print(false);

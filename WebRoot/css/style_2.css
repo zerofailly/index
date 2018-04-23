@@ -37,6 +37,8 @@
   right: 0;
   top: 0;
   padding: 10px;
+  word-wrap:break-word; 
+	word-break:break-all;
 }
 .new_code select {
   background-color: #FFC468;
@@ -44,10 +46,16 @@
 .new_code .title, .new_code .mar_class {
   margin-bottom: 10px;
 }
-.new_code .title input, .new_code .mar_class input {
-  width: 60%;
+.new_code .mar_class input {
+  width: 20%;
   opacity: 0.6;
   border-radius: 5px;
+}
+.new_code .mar_class span{
+	margin-left: 50px;
+}
+.new_code .mar_class select{
+	background-color: #FFE7BA;
 }
 .new_code .commit {
   padding-top: 10px;
@@ -69,7 +77,10 @@
   color: white;
   background-color: #0f3c6f;
 }
-
+#fileName_msg, #code_description, #run_msg{
+	font-size: small;
+	color:#FF0000;
+}
 .share_list {
   overflow: hidden;
   Z-index: 3;

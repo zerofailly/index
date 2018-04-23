@@ -1,4 +1,4 @@
-package cn.ucwork.servlet;
+package cn.ucwork.web.servlet;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
