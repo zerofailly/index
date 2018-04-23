@@ -18,7 +18,8 @@ html, body {
 		background:rgba(0,0,0,0.4);
 		top:-100%;
 		left:0;
-	}
+	}	
+
 .loggin {
   /*border: 2px solid;*/
   Z-index: 1;
@@ -51,10 +52,8 @@ html, body {
   border-radius: 5px;
 }
 .loggin img {
-	width: 130px;
-	display: inline-block;
-	height: 30px;
-	margin-left: 80px;
+	width: 40%;
+	height:40px;
   opacity: 0.6;
   border-radius: 5px;
 }
@@ -112,7 +111,7 @@ html, body {
   opacity: 0.6;
   border-radius: 5px;
 }
-.regist .submit, .regist .yanzheng, .regist .user_repass, .regist .user_pass, .regist .user_name {
+.regist .person_name, .regist .submit, .regist .yanzheng, .regist .user_repass, .regist .user_pass, .regist .user_name {
   margin-bottom: 20px;
   margin-left: 20px;
 }
@@ -133,6 +132,7 @@ html, body {
   color: white;
   background-color: #0f3c6f;
 }
+
 header .container.header1 {
   background-color: #6097d4;
   color: white;

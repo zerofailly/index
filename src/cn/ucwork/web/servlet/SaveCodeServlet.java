@@ -58,7 +58,7 @@ public class SaveCodeServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		String path = "E:\\compileTest\\test\\";
-		String fileName = request.getParameter("fileName");
+		String fileName = code.getFileName();
 		
 		//在指定目录创建文件
 		
@@ -66,6 +66,7 @@ public class SaveCodeServlet extends HttpServlet {
 		User user = (User) request.getSession().getAttribute("user");
 		code.setUser_id(user.getUser_id());
 		code.setCode_id(UUID.randomUUID().toString());
+		code.setPath(path);
 		//将文件信息写入数据库中
 		ServletOutputStream out = response.getOutputStream();
 		CodeService write = new CodeServiceImpl();
@@ -73,8 +74,8 @@ public class SaveCodeServlet extends HttpServlet {
 			write.addCode(code);
 		} catch (CodeException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
 			out.print(false);
+			e.printStackTrace();
 		}
 		CompileService cs = new CompileServiceImpl();
 		cs.creatFile(code.getContent(),fileName,path);

@@ -55,7 +55,10 @@ public class CompileServlet extends HttpServlet {
 		System.out.println(code.getCompileType());
 		System.out.println("content:" + code.getContent());
 		String path = "E:\\compileTest\\test\\";
-		String fileName = request.getParameter("fileName");
+		String fileName = code.getFileName();
+		//添加路径
+		code.setPath(path);
+		
 		CompileService cs = new CompileServiceImpl();
 		
 		//在指定目录创建文件

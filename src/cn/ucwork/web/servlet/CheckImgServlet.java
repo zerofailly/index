@@ -27,7 +27,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/checkImageServlet")
 public class CheckImgServlet extends HttpServlet {
-
+	
 	// 集合中保存所有成语
 	private List<String> words = new ArrayList<String>();
 
@@ -50,7 +50,6 @@ public class CheckImgServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
 		// 禁止缓存
 		// response.setHeader("Cache-Control", "no-cache");
 		// response.setHeader("Pragma", "no-cache");

@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -40,6 +41,7 @@ public class RegistServlet extends HttpServlet {
 		for (String key : map.keySet()) {
 			System.out.println(key+"|"+map.get(key)[0]);
 		}*/
+		ServletOutputStream out = response.getOutputStream();
 		User user = new User();
 		try {
 			BeanUtils.populate(user, request.getParameterMap());
@@ -49,17 +51,15 @@ public class RegistServlet extends HttpServlet {
 			
 			System.out.println(request.getSession().getAttribute("email_varyCode"));
 			//用户没有发送邮箱验证
+			System.out.println("veryfyCode:"+veryfyCode);
+			System.out.println("emailVeryfyCode:"+emailVeryfyCode);
 			if(emailVeryfyCode == null){
-				request.setAttribute("user", user);
-				request.setAttribute("emailVeryfy_empty", "请发送验证码");
-				request.getRequestDispatcher("/register.jsp").forward(request, response);
+				out.print("not_sendVeryfy");
 				return;
 			}
 			//用户邮箱验证错误
 			if(!emailVeryfyCode.equals(veryfyCode)){
-				request.setAttribute("user", user);
-				request.setAttribute("emailVeryfy_empty", "验证码错误");
-				request.getRequestDispatcher("/register.jsp").forward(request, response);
+				out.print("error_veryFy");
 				return;
 			}else{
 				String user_id = UUID.randomUUID().toString();
@@ -72,12 +72,13 @@ public class RegistServlet extends HttpServlet {
 					System.out.println("注册成功");
 					request.getSession().invalidate();
 					//这里有点小问题
-					response.sendRedirect(request.getContextPath()+"/login.jsp");
+					request.getSession().setAttribute("user", user);
+					out.print("regist_success");
+					//request.getRequestDispatcher("/loginServlet").forward(request, response);
 					return;
 				} catch (UserException e) {
-					request.setAttribute("user", user);
-					request.setAttribute("emailVeryfy_empty", e.getMessage());
-					request.getRequestDispatcher("/register.jsp").forward(request, response);
+					request.getSession().invalidate();
+					response.sendRedirect("/index.jsp");
 					e.printStackTrace();
 					return;
 				}

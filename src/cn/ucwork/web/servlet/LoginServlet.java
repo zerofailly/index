@@ -36,6 +36,14 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		User sessionUser = (User) request.getSession().getAttribute("user");
+		if(sessionUser != null){
+			System.out.println("登录成功");
+			request.getRequestDispatcher("/my_page.jsp").forward(request, response);
+			return;
+		}
+		
+		
 		User loginUser = new User();
 		try {
 			BeanUtils.populate(loginUser, request.getParameterMap());
@@ -46,38 +54,25 @@ public class LoginServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		String ck = request.getParameter("veryfyCode");
-		System.out.println(ck);
-		String checkcode_session = (String) request.getSession().getAttribute("checkcode_session");
-		if(!ck.equals(checkcode_session)){
-			request.setAttribute("error", "验证码错误!");
-			request.getRequestDispatcher("/login.jsp").forward(request, response);
-			return;
-		}
-		
-		/*String user_email = request.getParameter("user_email");
-		String passwd = request.getParameter("passwd");*/
-		
 		UserService us = new UserServiceImpl();
 		try {
 			System.out.println("login_passwd:"+loginUser.getPasswd());
+			System.out.println("login_email:"+loginUser.getUser_email());
 			User user = us.login(loginUser.getUser_email(), loginUser.getPasswd());
 			if(user!=null){
 				System.out.println("登录成功");
 				request.getSession().setAttribute("user", user);
-				response.sendRedirect(request.getContextPath()+"/index.jsp");
+				response.getOutputStream().print("login_success");
+				return;
 			}else{
-				System.out.println("用户名或密码错误");
-				request.setAttribute("login_msg", "用户名或密码错误");
-				request.getRequestDispatcher("/login.jsp").forward(request, response);
+				System.out.println("用户名不存在或密码错误");
+				response.getOutputStream().print("login_error");
 				return;
 			}
 		} catch (UserException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.out.println("用户不存在");
-			request.setAttribute("login_msg", e.getMessage());
-			request.getRequestDispatcher("/login.jsp").forward(request, response);
+			response.getOutputStream().print("login_error");
 			return;
 		}
 	}

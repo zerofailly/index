@@ -13,7 +13,7 @@
 
       <link rel="stylesheet" href="css/style.css">
 
-  
+
 </head>
 
 <body>
@@ -21,45 +21,50 @@
 <div class="divBg"></div>  
 <div class="regist">
   <div class="user_name"><span>邮箱地址:</span>
-    <input/>
-    <lable></lable>
+    <input id="user_email" onblur="check_user_email(this)"onmousedown="clear_msg('user_email_msg')"/>
+    <lable id="user_email_msg"></lable>
   </div>
   <div class="user_pass"><span>密码:</span>
-    <input/>
-    <lable>已发送</lable>
+    <input type="password" id="passwd" onblur="check_user_passwd(this)"onmousedown="clear_msg('user_passwd_msg')"/>
+    <lable id="user_passwd_msg"></lable>
   </div>
   <div class="user_repass"><span>确认密码:</span>
-    <input/>
-    <lable>已发送</lable>
+    <input type="password" id="check_passwd" onblur="check_second_passwd(this)"onmousedown="clear_msg('check_passwd_msg')"/>
+    <lable id="check_passwd_msg"></lable>
   </div>
-  <div class="yanzheng"><span>验证码:</span>
-    <input/>
-    <lable>已发送</lable>
+  <div class="user_name"><span>用户昵称:</span>
+    <input id="user_name"/>
+    <lable id="user_name_msg"></lable>
   </div>
-  <div class="submit"><span>注册</span><span id="exit_regist">取消</span></div>
+  <div class="yanzheng"><span>邮箱验证:</span>
+    <input id="veryfyCode" style="width:40%;"/>
+    <input class="send_button" type="button" value="发送验证码" 
+    style="width:30%;font-size:15px;text-align:center;font-weight: bold;" onclick="send_veryfy(this)"/>
+  </div>
+  <div class="submit"><span onclick="registUser()">注册</span><span id="exit_regist">取消</span></div>
 </div>
 <div class="loggin">
-  <div class="user_name"><span>用户名:</span>
-    <input/>
-    <lable>用户名不存在</lable>
+  <div class="user_name"><span>邮箱:</span>
+    <input id="login_user_name"/>
+    <lable id="login_user_msg"></lable>
   </div>
-  <div class="user_passwd"> <span>密码:</span>
-    <input/>
-    <lable>密码错误</lable>
+  <div class="user_passwd"><span>密码:</span>
+    <input type="password" id="login_passwd"/>
+    <lable id="login_passwd_msg"></lable>
   </div>
   <div class="imgCode">
-  	<img src="${pageContext.request.contextPath}/checkImageServlet" id="img" />&nbsp;&nbsp;
-		<a href="javascript:void(0);" style="font-size: small;margin-left: 20px;" onclick="changeImage()">看不清换一张</a><br/><br/>
-		<span>验证码:</span><input type="text" name="veryfyCode" /><lable>验证码错误</lable>
+  <span >验证码:</span><img src="${pageContext.request.contextPath}/checkImageServlet" id="img_veryfy" />&nbsp;&nbsp;
+		<a href="javascript:void(0);" style="font-size: small;" onclick="changeImage()">看不清楚换一张</a><br/><br/>
+		<span>输入验证:</span><input type="text" name="veryfyCode" id="login_veryfy_code"/><lable id="login_veryfy_msg"></lable>
   </div>
-  <div class="submit"><span>确定</span><span id="exit_loggin">取消</span></div>
+  <div class="submit"><span id="login_user">登录</span><span id="exit_loggin">取消</span></div>
 </div>
 <header>
   <div class="container header1">
     <div class="row">
       <div class="col-md-10 offset-md-1">
         <div class="logo"></div>
-        <div class="rl"><span id="regist">注册</span><span id="loggin">登录</span></div>
+        <div class="rl"><span id="regist" onclick="regist_click()">注册</span><span id="loggin">登录</span></div>
       </div>
     </div>
     <div class="row"> 
@@ -196,10 +201,10 @@
 
   
 
-    <script  src="js/index.js"></script>
-
-
-
+<script type="text/javascript" src="js/AjaxGetXMLHttpRequest.js"></script>
+<script src="js/regist.js"></script>
+<script  src="js/index.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
 
 </body>
 

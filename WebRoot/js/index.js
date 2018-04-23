@@ -5,6 +5,8 @@ $("#regist").click(function(){
 $("#exit_regist").click(function(){
   $(".regist").css({"height":"0", "opacity":"0","padding":"0"});
   $(".divBg").css({"top":"-100%"});
+  
+  
 });
 $("#loggin").click(function(){
   $(".loggin").css({"height":"auto", "opacity":"1","padding":"20px 20px"});
