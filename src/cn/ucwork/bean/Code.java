@@ -10,9 +10,15 @@ public class Code {
 	private String is_copy;
 	private String description;
 	private String user_id = null;
-	
+	User user= null;
 	public String getUser_id() {
 		return user_id;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
 	}
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;

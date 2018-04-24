@@ -18,4 +18,12 @@
     <url-pattern>/registServlet</url-pattern>
     <url-pattern>/loginServlet</url-pattern>
   </filter-mapping>
+  <servlet>
+    <servlet-name>FriendServlet</servlet-name>
+    <servlet-class>cn.ucwork.web.servlet.FriendServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FriendServlet</servlet-name>
+    <url-pattern>/frientServlet</url-pattern>
+   </servlet-mapping>
 </web-app>

@@ -3,6 +3,16 @@
   font-family: "微軟正黑體";
   position: relative;
 }
+.page_index {
+  text-align: center;
+}
+.page_index .pro_page, .page_index .current_page, .page_index .nex_page, .page_index .total_page {
+  display: inline-block;
+  padding-left: 12px;
+}
+.page_index .pro_page, .page_index .nex_page {
+  cursor: pointer;
+}
 
 .new_code {
   padding: 0px;
@@ -311,7 +321,7 @@ header .col-md-5.offset-1 {
 .message {
   padding-bottom: 10px;
   margin-bottom: 20px;
-  background-color: #6097d4;
+  background-color: #0f3c6f;
   color: white;
 }
 
@@ -321,7 +331,7 @@ section .section1 {
 }
 section .container {
   padding: 20px 20px;
-  background-color: #0f3c6f;
+  background-color: #6097d4;
   color: white;
 }
 
@@ -339,6 +349,85 @@ section .container {
   margin-right: 22px;
 }
 .head_icon:hover {
+  cursor: pointer;
+}
+
+.net_name {
+  position: absolute;
+  top: 19%;
+  padding-left: 10px;
+  padding-right: 10px;
+  max-width: 240px;
+  border-bottom: solid 2px #FFC468;
+}
+.net_name:hover {
+  cursor: pointer;
+}
+
+.person_name {
+  padding-left: 10px;
+  padding-right: 10px;
+  max-width: 560px;
+  border-bottom: solid 2px #FFC468;
+}
+
+.code_name, .code_msg {
+  padding: 10px 10px;
+}
+
+.code_name span {
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.code_name span:hover {
+  color: #FFC468;
+}
+
+.code_msg {
+  max-height: 160px;
+  overflow: hidden;
+  letter-spacing: 1px;
+}
+
+.comment {
+  padding-left: 10px;
+}
+.comment .yes, .comment .no, .comment .com, .comment .coll, .comment .readAll {
+  display: inline-block;
+  border: solid 1px;
+  border-radius: 5px;
+  background-color: #FFC468;
+  color: black;
+  box-shadow: inset 0px 2px rgba(0, 0, 0, 0.2);
+  padding: 0px 12px;
+}
+.comment .yes:hover, .comment .no:hover, .comment .com:hover, .comment .coll:hover, .comment .readAll:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #0f3c6f;
+}
+
+.comment {
+  margin: 20px;
+}
+.comment .head_icon {
+  width: 60px;
+  height: 60px;
+}
+.comment .comment_value {
+  padding: 10px 20px;
+}
+
+.code_main {
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  border-radius: 9px;
+  margin-right: 22px;
+}
+.code_main:hover {
   cursor: pointer;
 }
 

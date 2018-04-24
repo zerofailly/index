@@ -46,18 +46,19 @@
         </div>
       </div>
       <div class="friend_list">
-        <div class="close" id="friend_close">X</div>
-        <div class="friend">
-          <div class="head_icon">头</div>
-          <div class="net_name">网名</div>
+        <div class="close"  id="friend_close">X</div>
+        <div id ="friend">
+	        <div class="friend" v-for = "friend in friends">
+	          <input type="hidden"  :value="friend.user_id">
+	          <div class="head_icon"><img alt="" :src="friend.icon"></div>
+	          <div class="net_name">{{friend.name}}</div>
+	        </div>
         </div>
-        <div class="friend">
-          <div class="head_icon">头</div>
-          <div class="net_name">网名</div>
-        </div>
-        <div class="friend">
-          <div class="head_icon">头</div>
-          <div class="net_name">网名</div>
+        <div class="page_index" id="page_index">
+          <div class="pro_page" id= "pro_page"><</div>
+          <div class="current_page" id="current_page">{{page.currentPage}}</div>
+          <div class="nex_page" id="nex_page">></div>
+          <div class="total_page" id= "total_page">共{{page.totalPage}}页</div>
         </div>
       </div>
       <div class="col-md-10 offset-md-1">
@@ -94,7 +95,7 @@
           <input id="fileName"/><span id="fileName_msg"></span>
         </div>
         <div class="code_area">
-          <textarea id="code_msg" name="" cols="30" rows="10"></textarea>
+          <textarea id="code_msg1" name="" cols="30" rows="10"></textarea>
           <div class="run_over"> 
             <h4>运行结果:</h4>
             <p id="run_result"></p>
@@ -114,33 +115,63 @@
 </header>
 <section>
   <div class="container">
-    <div class="message">
-      <div class="row">
-        <div class="col-md-10 offset-1 section1">
-          <div class="head_icon">头像</div>
-          <div class="net_name">网名</div>
-          <div class="person_name">个性签名</div>
-        </div>
+  <div id="code_row" >
+    <div class="message" v-for="code in codeMager" >
+    
+	      <div class="row">
+	        <div class="col-md-10 offset-1 section1">
+	          <div class="head_icon"></div>
+	          <div class="net_name">{{code.user.name}}</div>
+	          <div class="person_name">{{code.user.person_name}}</div>
+	        </div>
+	      </div>
+     
+	      <div class="row" >
+	        <div class="col-md-10 offset-1">
+	          <div class="code_name"> <span>{{code.fileName}}</span></div>
+	        </div>
+	        <div class="col-md-10 offset-1">
+	          <div class="code_msg">{{code.description}}</div>
+	        </div>
+	        <div class="col-md-10 offset-1 code_main" :id="code.code_id">
+	          <div class="code_majar" >
+	            <textarea id="code_msg" name="" cols="30" rows="10"> </textarea>
+	            <div class="comment">
+	              <div class="head_icon">头像</div>
+	              <div class="net_name">网名</div>
+	              <div class="comment_value">写的真是太好了,写的真是太好了,写的真是太好了,写的真是太好了.写的真是太好了,写的真是太好了,写的真是太好了,写的真是太好了. </div>
+	            </div>
+	            <div class="comment">
+	              <div class="head_icon">头像</div>
+	              <div class="net_name">网名</div>
+	              <div class="comment_value">写的真是太好了,写的真是太好了,写的真是太好了,写的真是太好了.写的真是太好了,写的真是太好了,写的真是太好了,写的真是太好了. </div>
+	            </div>
+	          </div>
+	        </div>
+	        
+	      </div>
+	      
+	      <div class="row">
+	        <div class="col-md-10 offset-1">
+	          <div class="comment">
+	            <div class="yes">点赞</div>
+	            <div class="no">鄙视</div>
+	            <div class="com">评论</div>
+	            <div class="coll">收藏</div>
+	            <div class="readAll" id="chick_all" @click="pageOpenOrClose(code.code_id)">查看全文</div>
+	          </div>
+	        </div>
+	      </div>
       </div>
-      <div class="row">
-        <div class="col-md-10 offset-1">
-          <div class="code_name"> <span>Eclispe 写C++程序</span></div>
-        </div>
-        <div class="col-md-10 offset-1">
-          <div class="code_msg">首先安装C插件： 在eclipse里面点击Help->Install new Software, 在Work http://download.eclipse.org/releases/ganymede/ 会出现C插件，点击安装就可以了。 安装MinGW 下载MinGW后安装，然后在系统环境变量中添加%MinGW%\bin, MinGW为安装gcc的路径，例如： 个人…</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-10 offset-1">
-          <div class="comment">
-            <div class="yes">点赞</div>
-            <div class="no">鄙视</div>
-            <div class="com">评论</div>
-            <div class="coll">收藏</div>
-            <div class="readAll">查看全文</div>
-          </div>
-        </div>
-      </div>
+      
+    </div>
+    <div class="col-md-10 offset-1" id="codePage">
+	        <div class="page_index" id="code_page_index">
+	          <div class="pro_page" id= "code_pro_page"><</div>
+	          <div class="current_page" id="code_current_page">{{codePages.currentPage}}</div>
+	          <div class="nex_page" id="code_nex_page">></div>
+	          <div class="total_page" id= "code_total_page">共{{codePages.totalPage}}页</div>
+	        </div>
     </div>
   </div>
 </section>
@@ -149,7 +180,7 @@
 <script src='https://cdn.bootcss.com/codemirror/5.36.0/codemirror.min.js'></script>
 <script src='https://cdn.bootcss.com/codemirror/5.36.0/mode/clike/clike.min.js'></script>
 <script src='https://cdn.bootcss.com/codemirror/5.36.0/keymap/sublime.min.js'></script>
-
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   
 
     <script  src="js/index_2.js"></script>
